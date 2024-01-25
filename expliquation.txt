@@ -1,0 +1,27 @@
+Ce code utilise la bibliothèque Plotly en combinaison avec les bibliothèques sf, shiny et maps pour créer une application Shiny qui affiche des marqueurs de séismes sur un globe terrestre interactif. Voici une explication du code :
+
+1. Les bibliothèques nécessaires sont chargées, y compris sf pour la manipulation de données géospatiales, plotly pour la création de visualisations interactives, shiny pour la création d'applications web interactives, et maps pour obtenir les données géographiques des pays.
+
+2. Les données de séismes sont chargées à partir d'un fichier CSV.
+
+3. Un échantillon aléatoire de 1000 séismes est extrait des données complètes pour réduire le nombre de marqueurs affichés.
+
+4. Les coordonnées sphériques (phi, theta) sont calculées à partir des coordonnées de latitude et de longitude des séismes.
+
+5. Une échelle de taille des marqueurs est définie en fonction de la magnitude des séismes.
+
+6. Les données géographiques des pays sont chargées à partir de la fonction map_data().
+
+7. Les pays uniques sont extraits des données géographiques pour créer une liste de pays.
+
+8. Une palette de couleurs est définie pour les marqueurs de séismes.
+
+9. L'interface utilisateur (UI) de l'application Shiny est définie, avec un titre et une sortie plotly pour afficher le globe terrestre.
+
+10. Le serveur de l'application Shiny est défini. La fonction renderPlotly() crée un globe terrestre interactif en utilisant les données échantillonnées. La fonction add_trace() ajoute des marqueurs scattergeo pour représenter les séismes, avec des couleurs et des tailles basées sur la magnitude et les coordonnées sphériques. Les informations sur chaque séisme sont incluses dans le texte associé aux marqueurs.
+
+11. La mise en page du globe est personnalisée en utilisant la fonction layout() pour masquer le cadre du globe, afficher les contours des côtes, les terres et configurer une projection orthographique avec une rotation.
+
+12. Enfin, l'application Shiny est lancée en utilisant la fonction shinyApp(), en spécifiant l'interface utilisateur et le serveur.
+
+Lorsque vous exécutez cette application Shiny, vous obtiendrez un globe terrestre interactif avec des marqueurs de séismes. Vous pouvez zoomer, faire pivoter et survoler les marqueurs pour afficher des informations détaillées sur chaque séisme.
